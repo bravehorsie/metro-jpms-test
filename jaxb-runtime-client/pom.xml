@@ -1,0 +1,108 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.oracle.metrojpms</groupId>
+  <artifactId>jaxb-runtime-client</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>Client using JAXB runtime/impl dependency</name>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.8.2</version>
+      <scope>test</scope>
+    </dependency>
+      <dependency>
+          <groupId>org.glassfish.jaxb</groupId>
+          <artifactId>jaxb-runtime</artifactId>
+          <version>2.3.1-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+          <groupId>javax.xml.bind</groupId>
+          <artifactId>jaxb-api</artifactId>
+          <version>2.3.0</version>
+      </dependency>
+      <dependency>
+          <groupId>com.oracle.metrojpms</groupId>
+          <artifactId>jaxb-ri-client</artifactId>
+          <version>1.0-SNAPSHOT</version>
+      </dependency>
+  </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/mods</outputDirectory>
+                            <!--<includeArtifactIds>jaxb-api</includeArtifactIds>-->
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.7.0</version>
+                <configuration>
+                    <source>9</source>
+                    <target>9</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.0.2</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>false</addClasspath>
+                            <mainClass>
+                                com.oracle.jaxb.runtimeclient.App
+                            </mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.6.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <executable>java</executable>
+                    <arguments>
+                        <argument>--upgrade-module-path</argument>
+                        <argument>${project.build.directory}/mods/jaxb-api-2.3.0.jar</argument>
+                        <argument>--module-path</argument> <!-- or -p  -->
+                        <modulepath/>
+                        <argument>--add-modules</argument>
+                        <argument>com.sun.xml.bind,java.xml.bind,java.activation,jaxb.ri.client</argument>
+                        <!--<argument>&#45;&#45;list-modules</argument>-->
+                        <argument>-jar</argument>
+                        <argument>${project.build.directory}/jaxb-runtime-client-1.0-SNAPSHOT.jar</argument>
+                    </arguments>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
