@@ -21,7 +21,7 @@ public class Runner {
 
 
     public void printModule(String className, String dependencyName) {
-        Class<?> cls = null;
+        Class<?> cls;
         try {
             cls = Class.forName(className);
         } catch (ClassNotFoundException e) {
@@ -35,7 +35,8 @@ public class Runner {
         for(int i=0; i<spaces; i++) {
             System.out.print(" ");
         }
-        System.out.println(cls.getModule().getName());
+        System.out.println(cls.getModule().isNamed() ?
+                cls.getModule().getDescriptor().toNameAndVersion() : "UNNAMED");
     }
 
     @XmlRootElement
@@ -46,7 +47,7 @@ public class Runner {
         public Pojo() {
         }
 
-        public Pojo(String strValue) {
+        Pojo(String strValue) {
             this.strValue = strValue;
         }
 

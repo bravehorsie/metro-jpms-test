@@ -92,18 +92,21 @@
                         <configuration>
                             <executable>java</executable>
                             <arguments>
+                                <argument>--class-path</argument>
+                                <argument>${project.build.directory}/classes:${project.build.directory}/mods/jaxb-ri/lib/*</argument>
                                 <argument>--upgrade-module-path</argument>
-                                <argument>${project.build.directory}/mods/jaxb-ri/lib/jaxb-api.jar</argument>
+                                <argument>${project.build.directory}/mods/jaxb-ri/mod/jaxb-api.jar</argument>
                                 <argument>--module-path</argument>
-                                <argument>${project.build.directory}/mods/jaxb-ri/lib</argument>
+                                <argument>${project.build.directory}/mods/jaxb-ri/mod</argument>
                                 <argument>--add-modules</argument>
-                                <argument>com.sun.xml.bind,com.sun.tools.xjc,com.sun.tools.jxc,ant</argument>
+                                <argument>com.sun.xml.bind,com.sun.tools.xjc,com.sun.tools.jxc</argument>
                                 <argument>--add-reads</argument>
-                                <argument>com.sun.tools.jxc=ant</argument>
+                                <argument>com.sun.tools.jxc=ALL-UNNAMED</argument>
                                 <argument>--add-reads</argument>
-                                <argument>com.sun.tools.xjc=ant</argument>
-                                <argument>-jar</argument>
-                                <argument>${project.build.directory}/jaxb-ri-client-1.0-SNAPSHOT.jar</argument>
+                                <argument>com.sun.tools.xjc=ALL-UNNAMED</argument>
+                                <!--<argument>-jar</argument>
+                                <argument>${project.build.directory}/jaxb-ri-client-1.0-SNAPSHOT.jar</argument>-->
+                                <argument>com.oracle.jaxb.riclient.App</argument>
                                 <!--<argument>&#45;&#45;list-modules</argument>-->
                             </arguments>
                             <longModulepath>false</longModulepath>
@@ -118,9 +121,9 @@
                             <executable>java</executable>
                             <arguments>
                                 <argument>--upgrade-module-path</argument>
-                                <argument>${project.build.directory}/mods/jaxb-ri/lib/jaxb-api.jar</argument>
+                                <argument>${project.build.directory}/mods/jaxb-ri/mod/jaxb-api.jar</argument>
                                 <argument>--module-path</argument> <!-- or -p  -->
-                                <argument>${project.build.directory}/mods/jaxb-ri/lib</argument>
+                                <argument>${project.build.directory}/mods/jaxb-ri/mod:${project.build.directory}/mods/jaxb-ri/lib</argument>
                                 <argument>--add-modules</argument>
                                 <argument>com.sun.tools.xjc,ant,relaxngDatatype</argument>
                                 <argument>-jar</argument>
@@ -128,7 +131,7 @@
                                 <argument>com.sun.tools.xjc=ant,relaxngDatatype</argument>
                                 <argument>--add-reads</argument>
                                 <argument>com.sun.xml.xsom=relaxngDatatype</argument>
-                                <argument>${project.build.directory}/mods/jaxb-ri/lib/jaxb-xjc.jar</argument>
+                                <argument>${project.build.directory}/mods/jaxb-ri/mod/jaxb-xjc.jar</argument>
                                 <argument>-p</argument>
                                 <argument>com.oracle.metrojpms</argument>
                                 <argument>-d</argument>
