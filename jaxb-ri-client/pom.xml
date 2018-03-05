@@ -125,10 +125,10 @@
                                 <argument>--module-path</argument> <!-- or -p  -->
                                 <argument>${project.build.directory}/mods/jaxb-ri/mod:${project.build.directory}/mods/jaxb-ri/lib</argument>
                                 <argument>--add-modules</argument>
-                                <argument>com.sun.tools.xjc,ant,relaxngDatatype</argument>
+                                <argument>com.sun.tools.xjc,relaxngDatatype</argument>
                                 <argument>-jar</argument>
                                 <argument>--add-reads</argument>
-                                <argument>com.sun.tools.xjc=ant,relaxngDatatype</argument>
+                                <argument>com.sun.tools.xjc=relaxngDatatype</argument>
                                 <argument>--add-reads</argument>
                                 <argument>com.sun.xml.xsom=relaxngDatatype</argument>
                                 <argument>${project.build.directory}/mods/jaxb-ri/mod/jaxb-xjc.jar</argument>
@@ -137,6 +137,32 @@
                                 <argument>-d</argument>
                                 <argument>${project.build.directory}/generated-sources</argument>
                                 <argument>${project.build.directory}/classes/schema.xsd</argument>
+                            </arguments>
+                            <longModulepath>false</longModulepath>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>jxc</id>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>java</executable>
+                            <arguments>
+                                <!--<argument>-Xdebug</argument>
+                                <argument>-Xrunjdwp:server=y,transport=dt_socket,address=4000,suspend=y</argument>-->
+                                <argument>--upgrade-module-path</argument>
+                                <argument>${project.build.directory}/mods/jaxb-ri/mod/jaxb-api.jar</argument>
+                                <argument>--module-path</argument> <!-- or -p  -->
+                                <argument>${project.build.directory}/mods/jaxb-ri/mod:${project.build.directory}/mods/jaxb-ri/lib</argument>
+                                <argument>--add-modules</argument>
+                                <argument>com.sun.tools.jxc,relaxngDatatype</argument>
+                                <argument>-jar</argument>
+                                <argument>${project.build.directory}/mods/jaxb-ri/mod/jaxb-jxc.jar</argument>
+                                <argument>-d</argument>
+                                <argument>${project.build.directory}/generated-sources</argument>
+                                <argument>${project.build.directory}/classes/com/oracle/metrojpms/Author.java</argument>
+                                <argument>${project.build.directory}/classes/com/oracle/metrojpms/Book.java</argument>
                             </arguments>
                             <longModulepath>false</longModulepath>
                         </configuration>

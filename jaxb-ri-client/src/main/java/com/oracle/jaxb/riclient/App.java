@@ -20,9 +20,8 @@ public class App
         runner.printModule("com.sun.xml.dtdparser.DTDParser", "DTD-Parser");
         runner.printModule("com.sun.istack.Builder", "istack-runtime");
         runner.printModule("com.sun.istack.tools.ParallelWorldClassLoader", "istack-tools");
-        runner.printModule("com.sun.tools.jxc.SchemaGenBase", "JXC");
-        runner.printModule("com.sun.tools.xjc.XJCBase", "XJC");
-        runner.printModule("org.apache.tools.ant.AntClassLoader", "ANT");
+        runner.printModule("com.sun.tools.jxc.SchemaGenerator", "JXC");
+        runner.printModule("com.sun.tools.xjc.XJCFacade", "XJC");
         runner.printModule("org.relaxng.datatype.Datatype", "relaxNG");
 
         runner.marshallPojo();

@@ -7,4 +7,5 @@ mvn exec:exec
 cd jaxb-ri-client
 mvn exec:exec@runtime
 mvn exec:exec@xjc
+mvn exec:exec@jxc
 ```
