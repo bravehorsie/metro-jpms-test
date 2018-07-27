@@ -1,4 +1,4 @@
-package com.oracle.jaxb.riclient;
+package com.bravehorsie.jaxb.runner;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -11,7 +11,7 @@ import java.io.Writer;
 public class Runner {
 
     public void marshallPojo() throws JAXBException {
-        JAXBContext jaxbContext = JAXBContext.newInstance(Pojo.class);
+        JAXBContext jaxbContext = JAXBContext.newInstance(Pojo.class, Integer.class, int[].class);
         Marshaller marshaller = jaxbContext.createMarshaller();
         Writer out = new StringWriter();
         marshaller.marshal(new Pojo("abc value"), out);

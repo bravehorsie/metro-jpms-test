@@ -6,7 +6,7 @@
 //
 
 
-package com.oracle.metrojpms;
+package com.bravehorsie.metrojpms;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;
@@ -17,7 +17,7 @@ import javax.xml.namespace.QName;
 /**
  * This object contains factory methods for each 
  * Java content interface and Java element interface 
- * generated in the com.oracle.metrojpms package. 
+ * generated in the com.bravehorsie.metrojpms package.
  * <p>An ObjectFactory allows you to programatically 
  * construct new instances of the Java representation 
  * for XML content. The Java representation of XML 
@@ -35,7 +35,7 @@ public class ObjectFactory {
     private final static QName _Book_QNAME = new QName("", "book");
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.oracle.metrojpms
+     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.bravehorsie.metrojpms
      * 
      */
     public ObjectFactory() {

@@ -1,5 +1,7 @@
-package com.oracle.jaxb.riclient;
+package com.bravehorsie.jaxb.riclient;
 
+
+import com.bravehorsie.jaxb.runner.Runner;
 
 import javax.xml.bind.JAXBException;
 
@@ -22,7 +24,7 @@ public class App
         runner.printModule("com.sun.istack.tools.ParallelWorldClassLoader", "istack-tools");
         runner.printModule("com.sun.tools.jxc.SchemaGenerator", "JXC");
         runner.printModule("com.sun.tools.xjc.XJCFacade", "XJC");
-        runner.printModule("org.relaxng.datatype.Datatype", "relaxNG");
+        runner.printModule("com.sun.tools.rngdatatype.Datatype", "relaxNG");
 
         runner.marshallPojo();
 

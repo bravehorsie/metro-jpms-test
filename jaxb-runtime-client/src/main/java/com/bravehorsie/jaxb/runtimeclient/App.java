@@ -1,6 +1,7 @@
-package com.oracle.jaxb.runtimeclient;
+package com.bravehorsie.jaxb.runtimeclient;
 
-import com.oracle.jaxb.riclient.Runner;
+
+import com.bravehorsie.jaxb.runner.Runner;
 
 import javax.xml.bind.JAXBException;
 

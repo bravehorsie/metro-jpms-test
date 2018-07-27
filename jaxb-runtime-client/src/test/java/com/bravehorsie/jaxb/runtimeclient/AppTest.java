@@ -1,4 +1,4 @@
-package com.oracle.jaxb.riclient;
+package com.bravehorsie.jaxb.runtimeclient;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
