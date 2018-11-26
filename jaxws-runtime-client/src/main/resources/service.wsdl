@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions
+        xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+        xmlns:tns="http://com.bravehorsie.jaxws/"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns="http://schemas.xmlsoap.org/wsdl/"
+        targetNamespace="http://com.bravehorsie.jaxws/"
+        qname="CountService">
+    <types>
+        <xsd:schema
+                targetNamespace="http://com.bravehorsie.jaxws/">
+            <xsd:element name="getCountResponse" type="xsd:int"/>
+        </xsd:schema>
+    </types>
+
+    <message name="getCount">
+    </message>
+    <message name="getCountResponse">
+        <part name="parameters" element="tns:getCountResponse"/>
+    </message>
+    <portType name="CountService">
+        <operation name="getCount">
+            <input message="tns:getCount"/>
+            <output message="tns:getCountResponse"/>
+        </operation>
+    </portType>
+    <binding name="CountServicePort"
+             type="tns:CountService">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"
+                      style="document"/>
+        <operation name="getCount">
+            <soap:operation
+                    soapAction="http://com.bravehorsie.jaxws/
+              CountService/getCount"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="CountService">
+        <port name="CountServicePort"
+              binding="tns:CountServicePort">
+            <soap:address
+                    location="http://localhost:8080/countservice"/>
+        </port>
+    </service>
+</definitions>

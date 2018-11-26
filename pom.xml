@@ -12,6 +12,7 @@
         <module>jaxb-runtime-client</module>
         <module>jaxb-ri-client</module>
         <module>runtime-runner</module>
+        <module>jaxws-runtime-client</module>
     </modules>
 
     <repositories>
@@ -51,11 +52,23 @@
                 <version>${jaxb.ri.version}</version>
                 <type>zip</type>
             </dependency>
+            <dependency>
+                <groupId>com.sun.xml.ws</groupId>
+                <artifactId>jaxws-rt</artifactId>
+                <version>${jaxws.rt.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.xml.ws</groupId>
+                <artifactId>jaxws-api</artifactId>
+                <version>${jaxws.api.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
     <properties>
         <jaxb.api.version>2.4.0-b180725.0427</jaxb.api.version>
         <jaxb.ri.version>2.4.0-b180725.0644</jaxb.ri.version>
+        <jaxws.rt.version>2.3.1</jaxws.rt.version>
+        <jaxws.api.version>2.4.0</jaxws.api.version>
     </properties>
 </project>
