@@ -40,8 +40,8 @@
             <version>${jaxb.ri.version}</version>
         </dependency>
         <dependency>
-            <groupId>javax.xml.bind</groupId>
-            <artifactId>jaxb-api</artifactId>
+            <groupId>jakarta.xml.bind</groupId>
+            <artifactId>jakarta.xml.bind-api</artifactId>
         </dependency>
         <dependency>
             <groupId>com.bravehorsie.metrojpms</groupId>
@@ -62,7 +62,7 @@
                         </goals>
                         <configuration>
                             <outputDirectory>${project.build.directory}/mods</outputDirectory>
-                            <!--<includeArtifactIds>jaxb-api</includeArtifactIds>-->
+                            <!--<includeArtifactIds>jakarta.xml.bind-api</includeArtifactIds>-->
                         </configuration>
                     </execution>
                 </executions>
@@ -103,8 +103,6 @@
                         <configuration>
                             <executable>java</executable>
                             <arguments>
-                                <argument>--upgrade-module-path</argument>
-                                <argument>${project.build.directory}/mods/jaxb-api-${jaxb.api.version}.jar</argument>
                                 <argument>--module-path</argument>
                                 <modulepath/>
                                 <argument>--module</argument>
@@ -120,8 +118,6 @@
                         <configuration>
                             <executable>java</executable>
                             <arguments>
-                                <argument>--upgrade-module-path</argument>
-                                <argument>${project.build.directory}/mods/jaxb-ri/mod/jaxb-api.jar</argument>
                                 <argument>--module-path</argument>
                                 <modulepath/>
                                 <argument>-m</argument>
@@ -143,8 +139,6 @@
                         <configuration>
                             <executable>java</executable>
                             <arguments>
-                                <argument>--upgrade-module-path</argument>
-                                <argument>${project.build.directory}/mods/jaxb-api-${jaxb.api.version}.jar</argument>
                                 <argument>--module-path</argument> <!-- or -p  -->
                                 <modulepath/>
                                 <argument>-m</argument>

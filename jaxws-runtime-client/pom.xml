@@ -19,12 +19,12 @@
             <artifactId>jaxws-rt</artifactId>
         </dependency>
         <dependency>
-            <groupId>javax.xml.ws</groupId>
-            <artifactId>jaxws-api</artifactId>
+            <groupId>jakarta.xml.ws</groupId>
+            <artifactId>jakarta.xml.ws-api</artifactId>
         </dependency>
         <dependency>
-            <groupId>javax.xml.bind</groupId>
-            <artifactId>jaxb-api</artifactId>
+            <groupId>jakarta.xml.bind</groupId>
+            <artifactId>jakarta.xml.bind-api</artifactId>
         </dependency>
     </dependencies>
 
@@ -86,7 +86,7 @@
                             <executable>java</executable>
                             <arguments>
                                 <argument>--upgrade-module-path</argument>
-                                <argument>${project.build.directory}/mods/jaxws-api-${jaxws.api.version}.jar</argument>
+                                <argument>${project.build.directory}/mods/jakarta.xml.ws-api-${jaxws.api.version}.jar</argument>
                                 <argument>--module-path</argument>
                                 <modulepath/>
                                 <argument>--module</argument>

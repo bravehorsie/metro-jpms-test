@@ -15,10 +15,10 @@ public class App {
 
         System.out.println("JAXB modules: ");
         runner.printModule("javax.xml.bind.JAXBContext", "JAXB API");
-        runner.printModule("com.sun.xml.bind.v2.runtime.JAXBContextImpl", "JAXB IMPL");
-        runner.printModule("org.jvnet.staxex.StAxSOAPBody", "STAX-EX");
-        runner.printModule("org.jvnet.fastinfoset.FastInfosetParser", "FastInfoset");
-        runner.printModule("com.sun.istack.Builder", "istack-runtime");
+//        runner.printModule("com.sun.xml.bind.v2.runtime.JAXBContextImpl", "JAXB IMPL");
+//        runner.printModule("org.jvnet.staxex.StAxSOAPBody", "STAX-EX");
+//        runner.printModule("org.jvnet.fastinfoset.FastInfosetParser", "FastInfoset");
+//        runner.printModule("com.sun.istack.Builder", "istack-runtime");
 
         runner.marshallPojo();
     }
