@@ -1,6 +1,8 @@
 module com.bravehorsie.jaxws.runtimeclient {
     requires java.xml.bind;
     requires java.xml.ws;
-    requires javax.jws;
+//    requires com.sun.xml.ws.jaxws;
+    requires java.jws;
+
 
 }

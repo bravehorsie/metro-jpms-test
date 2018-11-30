@@ -37,8 +37,8 @@
                     <source>9</source>
                     <target>9</target>
                     <compilerArgs>
-                        <arg>--add-modules</arg>
-                        <arg>java.xml.bind,java.xml.ws</arg>
+                        <!--<arg>&#45;&#45;add-modules</arg>-->
+                        <!--<arg>com.sun.xml.ws.jaxws</arg>-->
                     </compilerArgs>
                 </configuration>
             </plugin>
@@ -46,12 +46,25 @@
                 <artifactId>maven-dependency-plugin</artifactId>
                 <executions>
                     <execution>
+                        <id>copy-mods</id>
                         <phase>compile</phase>
                         <goals>
                             <goal>copy-dependencies</goal>
                         </goals>
                         <configuration>
                             <outputDirectory>${project.build.directory}/mods</outputDirectory>
+                            <includeArtifactIds>jakarta.xml.bind-api,jakarta.xml.ws-api,istack-commons-runtime,jaxb-runtime,FastInfoset,saaj-impl,streambuffer,txw2,jaxws-rt,policy,jakarta.activation-api,jakarta.annotation-api,jakarta.jws-api,jakarta.xml.soap-api,stax-ex,mimepull</includeArtifactIds>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>copy-libs</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/libs</outputDirectory>
+                            <includeArtifactIds>woodstox-core,gmbal,ha-api,management-api,stax2-api,pfl-asm,pfl-basic,pfl-basic-tools,pfl-dynamic,pfl-tf,pfl-tf-tools</includeArtifactIds>
                         </configuration>
                     </execution>
                 </executions>
@@ -84,14 +97,24 @@
                         </goals>
                         <configuration>
                             <executable>java</executable>
+                            <longModulepath>false</longModulepath>
                             <arguments>
-                                <argument>--upgrade-module-path</argument>
-                                <argument>${project.build.directory}/mods/jakarta.xml.ws-api-${jaxws.api.version}.jar</argument>
                                 <argument>--module-path</argument>
-                                <modulepath/>
+                                <argument>${project.build.directory}/mods:${project.build.directory}/jaxws-runtime-client-${project.version}.jar</argument>
+                                <argument>--class-path</argument>
+                                <argument>${project.build.directory}/libs/*</argument>
+                                <argument>--add-modules</argument>
+                                <argument>jdk.unsupported</argument>
+                                <argument>--add-reads</argument>
+                                <argument>com.sun.xml.ws.jaxws=ALL-UNNAMED</argument>
+                                <!--<argument>&#45;&#45;add-reads</argument>-->
+                                <!--<argument>com.bravehorsie.jaxws.runtimeclient=ALL-UNNAMED</argument>-->
+                                <argument>--add-exports</argument>
+                                <argument>com.bravehorsie.jaxws.runtimeclient/com.bravehorsie.jaxws.runtimeclient=ALL-UNNAMED</argument>
                                 <argument>--module</argument>
-                                <argument>com.bravehorsie.jaxws.runtimeclient/com.bravehorsie.jaxws.runtimeclient.App
-                                </argument>
+                                <argument>com.bravehorsie.jaxws.runtimeclient/com.bravehorsie.jaxws.runtimeclient.Main</argument>
+
+                                <!--<argument>&#45;&#45;list-modules</argument>-->
                             </arguments>
                         </configuration>
                     </execution>
